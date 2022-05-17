@@ -27,7 +27,7 @@ data.isna().sum()
 data = data.dropna()
 data
 
-"""#we will also check for any dupilcates 
+#we will also check for any dupilcates 
 data.duplicated().sum()
 
 #sentiment count
@@ -38,4 +38,4 @@ data2 = data.sample(frac = 0.50, random_state= 0)
 data2 = data2.drop_duplicates(ignore_index = True)
 data2
 
-data2.label.value_counts()"""
+data2.label.value_counts()
