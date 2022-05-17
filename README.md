@@ -9,6 +9,8 @@ Data: The has two rows and a million columns. we will use this data to train our
 The data is taken from a trusted source and preprocessing is required before using the data.
 Proposed Model: There are many machine models which can be used such as Naive Bayes, Long-Short Term Memory, linear regression and Support Vector Machines. We will use Long-Short Term Memory (LSTM) for our project as it gives better accuracy for such data sets.
 After training the model we will check the accuracy and evaluate the model.
+#Link_for_the_Data
+https://www.kaggle.com/datasets/bittlingmayer/amazonreviews
 
 
 
