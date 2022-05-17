@@ -25,7 +25,6 @@ data.isna().sum()
 
 #dropping the null entries
 data = data.dropna()
-data
 
 #we will also check for any dupilcates 
 data.duplicated().sum()
@@ -36,6 +35,18 @@ data.label.value_counts()
 #showing data to clean
 data2 = data.sample(frac = 0.50, random_state= 0)
 data2 = data2.drop_duplicates(ignore_index = True)
-data2
 
 data2.label.value_counts()
+#plot the label count
+sns.countplot(data2.label)
+plt.title("Count of labels")
+#function to clean the reviews
+def clean_text(df, field):
+    df[field] = df[field].str.replace(r"@"," at ")
+    df[field] = df[field].str.replace("#[^a-zA-Z0-9_]+"," ")
+    df[field] = df[field].str.replace(r"[^a-zA-Z(),\"'\n_]"," ")
+    df[field] = df[field].str.replace(r"http\S+","")
+    df[field] = df[field].str.lower()
+    return df
+
+clean_text(data2,"review")
