@@ -66,3 +66,5 @@ def preprocess_text(text):
     text = [lemmatizer.lemmatize(word) for word in text.split() if not word in set(stopwords.words('english'))]
     text = ' '.join(text)
     return text
+
+data2["clean_review"] = data2["review"].apply(preprocess_text)
