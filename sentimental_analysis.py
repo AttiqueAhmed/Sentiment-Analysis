@@ -55,3 +55,14 @@ from nltk.stem.wordnet import WordNetLemmatizer
 import re, string, nltk
 import emoji, bz2
 from nltk.corpus import stopwords
+
+lemmatizer = WordNetLemmatizer()
+
+def preprocess_text(text):
+    text = re.sub(r"won\'t", "will not", text)
+    text = re.sub(r"can\'t", "can not", text)
+    text = re.sub('[^a-zA-Z0-9]',' ',text)
+    text= re.sub(emoji.get_emoji_regexp(),"",text)
+    text = [lemmatizer.lemmatize(word) for word in text.split() if not word in set(stopwords.words('english'))]
+    text = ' '.join(text)
+    return text
