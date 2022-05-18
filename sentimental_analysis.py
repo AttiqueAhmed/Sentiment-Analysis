@@ -50,3 +50,8 @@ def clean_text(df, field):
     return df
 
 clean_text(data2,"review")
+
+from nltk.stem.wordnet import WordNetLemmatizer
+import re, string, nltk
+import emoji, bz2
+from nltk.corpus import stopwords
