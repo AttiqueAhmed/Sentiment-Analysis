@@ -159,3 +159,14 @@ plt.legend()
 plt.xlabel("No. of Epochs")
 plt.ylabel("Accuracy")
 plt.title("Training and Validation Accuracy")
+
+#plotting loss
+plt.figure(figsize=(9,6))
+plt.plot(loss,label="Training Loss")
+plt.plot(val_loss, label="Validation Loss")
+plt.legend()
+plt.xlabel("No. of Epochs")
+plt.ylabel("Loss")
+plt.title("Training and Validation Loss")
+
+
