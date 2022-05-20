@@ -171,5 +171,18 @@ plt.title("Training and Validation Loss")
 
 #from the above graphs, we can see the accuracy as well as the loss for both validation and traing data. From the first graph, it is visible that the validation accuracy over the epochs has decreased as compared to training accuracy. Same as validation loss has increased comapared to validation loss.
 
-
+#testing model for a manual input
+rvw = ['i hate eating']
+#vectorizing the review by the pre-fitted tokenizer instance
+rvw = tokenizer.texts_to_sequences(rvw)
+#padding the review to have exactly the same shape as `embedding_2` input
+rvw = pad_sequences(rvw, maxlen=28)
+sentiment = model.predict(rvw,batch_size= 1, verbose = 2)
+print(sentiment)
+print(np.rint(sentiment))
+print(np.argmax(sentiment))
+if(np.rint(sentiment) == 0):
+    print("negative")
+elif (np.rint(sentiment) == 1):
+    print("positive")
 
