@@ -83,3 +83,16 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(np.array(data_review["clean_review"]),np.array(data_review["label"]), test_size=0.30,random_state= 5)
 print(X_train.shape)
 print(X_test.shape)
+
+from keras.preprocessing.text import Tokenizer
+from keras.preprocessing.sequence import pad_sequences
+
+tokenizer = Tokenizer()
+tokenizer.fit_on_texts(X_train)
+
+X_train_seq = tokenizer.texts_to_sequences(X_train)
+X_test_seq = tokenizer.texts_to_sequences(X_test)
+
+#padding to keep the number of words 
+X_train_seq_padded = pad_sequences(X_train_seq, maxlen=64)
+X_test_seq_padded = pad_sequences(X_test_seq, maxlen=64)
