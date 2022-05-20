@@ -104,3 +104,8 @@ tokenizer = Tokenizer()
 
 tokenizer.fit_on_texts(X_train)
 
+# using tokenizer to transform reviews into training and testing set
+X_train_seq = tokenizer.texts_to_sequences(X_train)
+X_test_seq = tokenizer.texts_to_sequences(X_test)
+
+
