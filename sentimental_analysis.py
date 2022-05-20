@@ -111,3 +111,8 @@ X_test_seq = tokenizer.texts_to_sequences(X_test)
 X_train_seq_padded = pad_sequences(X_train_seq, maxlen=64)
 X_test_seq_padded = pad_sequences(X_test_seq, maxlen=64)
 
+from tensorflow import keras
+from keras.models import Sequential
+from keras.layers import Dense, LSTM, Dropout
+from keras.layers.embeddings import Embedding
+
