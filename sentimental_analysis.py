@@ -3,9 +3,14 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns 
-
-#to avoid any warnings
+from keras.callbacks import EarlyStopping
 import warnings
+from nltk.stem.wordnet import WordNetLemmatizer
+import re, string, nltk
+import emoji, bz2
+from nltk.corpus import stopwords
+
+
 warnings.filterwarnings('ignore')
 
 #importing the data 
@@ -51,10 +56,7 @@ def clean_text(df, field):
 
 clean_text(data2,"review")
 
-from nltk.stem.wordnet import WordNetLemmatizer
-import re, string, nltk
-import emoji, bz2
-from nltk.corpus import stopwords
+
 
 lemmatizer = WordNetLemmatizer()
 
