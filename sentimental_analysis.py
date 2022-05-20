@@ -102,8 +102,7 @@ X_test_seq = tokenizer.texts_to_sequences(X_test)
 X_train_seq_padded = pad_sequences(X_train_seq, maxlen=64)
 X_test_seq_padded = pad_sequences(X_test_seq, maxlen=64)
 
-from keras.preprocessing.text import Tokenizer
-from keras.preprocessing.sequence import pad_sequences
+
 
 tokenizer = Tokenizer()
 
@@ -129,7 +128,7 @@ model.add(Dense(1,activation="sigmoid"))
 model.compile(optimizer = "adam", loss = "binary_crossentropy", metrics=["accuracy"])
 model.summary()
 
-from keras.callbacks import EarlyStopping
+
 early_stop = EarlyStopping(monitor="val_loss", patience=5, verbose=True)
 
 history = model.fit(X_train_seq_padded, y_train,batch_size=BATCH_SIZE,epochs=8,
