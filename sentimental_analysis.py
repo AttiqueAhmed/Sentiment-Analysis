@@ -116,3 +116,5 @@ from keras.models import Sequential
 from keras.layers import Dense, LSTM, Dropout
 from keras.layers.embeddings import Embedding
 
+BATCH_SIZE = 32
+
