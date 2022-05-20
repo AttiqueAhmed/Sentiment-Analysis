@@ -96,3 +96,8 @@ X_test_seq = tokenizer.texts_to_sequences(X_test)
 #padding to keep the number of words 
 X_train_seq_padded = pad_sequences(X_train_seq, maxlen=64)
 X_test_seq_padded = pad_sequences(X_test_seq, maxlen=64)
+
+from keras.preprocessing.text import Tokenizer
+from keras.preprocessing.sequence import pad_sequences
+
+tokenizer = Tokenizer()
