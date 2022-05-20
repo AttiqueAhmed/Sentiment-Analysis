@@ -108,4 +108,6 @@ tokenizer.fit_on_texts(X_train)
 X_train_seq = tokenizer.texts_to_sequences(X_train)
 X_test_seq = tokenizer.texts_to_sequences(X_test)
 
+X_train_seq_padded = pad_sequences(X_train_seq, maxlen=64)
+X_test_seq_padded = pad_sequences(X_test_seq, maxlen=64)
 
