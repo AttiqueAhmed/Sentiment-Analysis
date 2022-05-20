@@ -68,3 +68,18 @@ def preprocess_text(text):
     return text
 
 data2["clean_review"] = data2["review"].apply(preprocess_text)
+
+#replacing the label values
+data2.label.replace({1:0, 2:1}, inplace = True)
+data2.head()
+
+#selecting only labels and clean reviews
+data_review = data2[['label', 'clean_review']]
+data_review
+
+#splitting data for test and train
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(np.array(data_review["clean_review"]),np.array(data_review["label"]), test_size=0.30,random_state= 5)
+print(X_train.shape)
+print(X_test.shape)
