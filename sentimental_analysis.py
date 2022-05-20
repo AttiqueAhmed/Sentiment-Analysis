@@ -169,4 +169,7 @@ plt.xlabel("No. of Epochs")
 plt.ylabel("Loss")
 plt.title("Training and Validation Loss")
 
+#from the above graphs, we can see the accuracy as well as the loss for both validation and traing data. From the first graph, it is visible that the validation accuracy over the epochs has decreased as compared to training accuracy. Same as validation loss has increased comapared to validation loss.
+
+
 
