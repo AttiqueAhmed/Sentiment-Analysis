@@ -118,3 +118,9 @@ from keras.layers.embeddings import Embedding
 
 BATCH_SIZE = 32
 
+model = Sequential()
+model.add(Embedding(len(tokenizer.index_word)+1, 64))
+model.add(LSTM(200, dropout=0.2, recurrent_dropout=0.2))
+model.add(Dense(128, activation="relu"))
+model.add(Dense(1,activation="sigmoid"))
+
