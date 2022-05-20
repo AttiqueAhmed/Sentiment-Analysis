@@ -101,3 +101,6 @@ from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
 
 tokenizer = Tokenizer()
+
+tokenizer.fit_on_texts(X_train)
+
