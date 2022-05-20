@@ -140,3 +140,21 @@ pred_train = model.predict(X_train_seq_padded)
 pred_test = model.predict(X_test_seq_padded)
 print('LSTM Train ROC score: ' + str(roc_auc_score(y_train, pred_train)))
 print('LSTM Test ROC Score: ' + str(roc_auc_score(y_test, pred_test)))
+
+# evaluating the model 
+model.evaluate(X_test_seq_padded, y_test)
+
+# plotting accuracy
+acc = history.history["accuracy"]
+loss = history.history["loss"]
+
+val_acc = history.history["val_accuracy"]
+val_loss = history.history["val_loss"]
+
+plt.figure(figsize=(9,6))
+plt.plot(acc,label="Training Accuracy")
+plt.plot(val_acc,label="Validation Accuracy")
+plt.legend()
+plt.xlabel("No. of Epochs")
+plt.ylabel("Accuracy")
+plt.title("Training and Validation Accuracy")
