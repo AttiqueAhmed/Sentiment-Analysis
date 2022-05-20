@@ -127,3 +127,9 @@ model.add(Dense(1,activation="sigmoid"))
 model.compile(optimizer = "adam", loss = "binary_crossentropy", metrics=["accuracy"])
 model.summary()
 
+from keras.callbacks import EarlyStopping
+early_stop = EarlyStopping(monitor="val_loss", patience=5, verbose=True)
+
+history = model.fit(X_train_seq_padded, y_train,batch_size=BATCH_SIZE,epochs=8,
+                    validation_data=(X_test_seq_padded, y_test),callbacks=[early_stop])
+
