@@ -16,6 +16,7 @@ from tensorflow import keras
 from keras.models import Sequential
 from keras.layers import Dense, LSTM, Dropout
 from keras.layers.embeddings import Embedding
+from sklearn.metrics import roc_auc_score
 
 
 warnings.filterwarnings('ignore')
@@ -135,7 +136,7 @@ history = model.fit(X_train_seq_padded, y_train,batch_size=BATCH_SIZE,epochs=8,
                     validation_data=(X_test_seq_padded, y_test),callbacks=[early_stop])
 
 # Calculating the accuracies of model for test and train predictions
-from sklearn.metrics import roc_auc_score
+
 pred_train = model.predict(X_train_seq_padded)
 pred_test = model.predict(X_test_seq_padded)
 print('LSTM Train ROC score: ' + str(roc_auc_score(y_train, pred_train)))
